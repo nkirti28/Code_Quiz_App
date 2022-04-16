@@ -15,16 +15,21 @@ SO THAT I can gauge my progress compared to my peers
 
 ```
 GIVEN I am taking a code quiz
-WHEN I click the Start button
-THEN a timer starts and I am presented with a question
+WHEN I click the Start Quiz button
+THEN a timer starts and I am presented with a question with options
+
 WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
+THEN I am presented with Message (Correct! or Wrong!) for 2 seconds and
+after that another question present with realted options
+
+WHEN I reached to last question
+THEN Game is Over and  I am presented with Input Initials Page
+
 WHEN the game is over
 THEN I can save my initials and score
+
+WHEN I submit initials
+THEN I am presented with all Hign Scores with Initials
 
 ```
 
