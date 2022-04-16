@@ -144,8 +144,7 @@ function renderHighScores() {
   highScores = JSON.parse(localStorage.getItem("scores"));
   for (let i = 0; i < highScores.length; i++) {
     let scoreItem = document.createElement("div");
-    // scoreItem.className += "";
-    console.log(scoreItem);
+    scoreItem.className += "scoreBoard";
     scoreItem.setAttribute("style", "background-color:PaleTurquoise;");
     scoreItem.textContent = `${i + 1}. ${highScores[i].username} - ${
       highScores[i].userScore
