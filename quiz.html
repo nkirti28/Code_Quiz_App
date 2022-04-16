@@ -9,37 +9,67 @@
   </head>
 
   <body>
-      <div class="wrapper">
-      <header>
+    <!-- header-->
+    <header>
+      <div>
         <h1>Code Quiz Challenge</h1>
-      </header>
-      <div class="container">
-        <div class="question">
-          <div><b>Q. which option best describes your job role?</b></div>
-          <br />
-          <div id="options">
-            <label class="options" for="option1" data-number="1"
-              >Small Business Owner or Employee
-              <input type="radio" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="options" for="option2" data-number="2"
-              >Nonprofit Owner or Employee <input type="radio" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="options" for="option3" data-number="3"
-              >Journalist or Activist <input type="radio" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-            <label class="options" for="option4" data-number="4"
-              >Other <input type="radio" name="radio" />
-              <span class="checkmark"></span>
-            </label>
-           
+      </div>
+    </header>
+    <!-- end of header-->
+
+    <div class="container" id="quiz">
+      <div class="page-content-left" id="ViewScore">View High Scores</div>
+      <br />
+      <div class="page-content-right">Time: <span id="timer"></span></div>
+
+      <!-- code-quiz -->
+      <div class="question">
+        <div>
+          <b>Q. <span id="question"></span></b>
+        </div>
+        <br />
+        <div id="options">
+          <div class="choice">
+            <label class="options" data-number="0"> </label>
+          </div>
+          <div class="choice">
+            <label class="options" data-number="1"> </label>
+          </div>
+          <div class="choice">
+            <label class="options" data-number="2"> </label>
+          </div>
+          <div class="choice">
+            <label class="options" data-number="3"> </label>
           </div>
         </div>
       </div>
-      <footer>&copy;2022 by CodeQuiz</footer>
-    <script src="./assets/js/script.js"></script>
+      <!--Display Correct or Wrong msg for answers -->
+      <div class="page-footer" id="Check"></div>
+    </div>
+
+    <!-- Input High Scores-->
+    <div class="container" id="inputScore">
+      <h3>All done!</h3>
+      <br />
+      <p>Your final score: <span id="score"></span></p>
+      <p>Enter initials: <input type="text " id="initials" /></p>
+
+      <button type="button" class="btn btn-primary" id="submitInitials">
+        Submit
+      </button>
+    </div>
+
+    <!-- view high scores -->
+    <div class="container" id="highScores">
+      <h3>Highscores</h3>
+      <div id="scores"></div>
+      <button type="button" class="btn btn-primary" id="goBack">Go Back</button>
+    </div>
+
+    <footer>&copy;2022 by CodeQuiz</footer>
+
+    <!-- JavaScript -->
+    <script src="./assets/js/questions.js"></script>
+    <script src="./assets/js/code-quiz.js"></script>
   </body>
 </html>

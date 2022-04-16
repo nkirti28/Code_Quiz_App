@@ -22,6 +22,7 @@ header {
   padding-top: 0px;
   color: hsl(206, 20%, 93%);
 }
+
 .container {
   background-color: hsl(0, 0%, 100%);
   border-radius: 10px;
@@ -31,23 +32,40 @@ header {
   font-size: 18px;
   margin: 0 auto;
   max-width: 700px;
-  padding: 30px 40px;
+  padding: 30px 30px;
   font-family: "Montserrat", sans-serif;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: column;
 }
 
 .container > p {
-  font-size: 32px;
+  font-size: 14px;
+  padding: 10px 10px;
 }
 
-.page-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+.page-content-left {
+  align-self: flex-start;
+  color: rgb(17, 24, 121);
+  margin-left: 5px;
+  padding-left: 10px;
+  font-size: small;
+  font-weight: bold;
 }
+.page-content-right {
+  align-self: flex-end;
+  color: rgb(17, 24, 121);
+  font-size: small;
+  font-weight: bold;
+}
+.page-footer {
+  align-self: flex-end;
+}
+#scores {
+  padding-left: 5px;
+}
+
 .question {
   width: 75%;
 }
@@ -62,10 +80,12 @@ header {
   margin-bottom: 15px;
   font-size: 14px;
   cursor: pointer;
+  width: 100%;
 }
 
 .options input {
   opacity: 0;
+  width: 100%;
 }
 
 .checkmark {
@@ -104,6 +124,13 @@ header {
 
 .options input[type="radio"]:checked ~ .checkmark:after {
   transform: translate(-50%, -50%) scale(1);
+}
+
+#check {
+  color: blue;
+  text-align: center;
+  font-weight: bold;
+  font-size: 10px;
 }
 .btn {
   text-align: center;
