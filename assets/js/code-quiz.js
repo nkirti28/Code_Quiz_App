@@ -24,7 +24,7 @@ let score = 0;
 let timerCount = 0;
 var highScores = [];
 var interval;
-let availableQuestions = [];
+
 // create function
 var quizformHandler = function (event) {
   //event.preventDefault();
@@ -182,7 +182,6 @@ submitInitialsBtnEl.addEventListener("click", function () {
     let userScore = { username: initValue, userScore: score };
     initialsEl.value = "";
     highScores = JSON.parse(localStorage.getItem("scores")) || [];
-    console.log(highScores);
     highScores.push(userScore);
     localStorage.setItem("scores", JSON.stringify(highScores));
     hide(inputScoreEl);
@@ -191,18 +190,9 @@ submitInitialsBtnEl.addEventListener("click", function () {
   }
 });
 
-//store user initials and score when submit button is clicked
-//submitButton.addEventListener("click", storeScore);
-
 //Goes back to Welcome page from High scores
 goBackBtnEl.addEventListener("click", function () {
   return window.location.assign("./index.html");
 });
 
-//Clears saved scores from local storage
-// clearScoresBtnEl.addEventListener("click", function () {
-//   highScores = [];
-//   localStorage.setItem("scores", JSON.stringify(highScores));
-//   renderHighScores();
-// });
 quizformHandler();
