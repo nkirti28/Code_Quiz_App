@@ -32,7 +32,7 @@ THEN I can save my initials and score
 
 The following GIF Image demonstrates the web application's default appearance and functionality
 
-![Web Application displays Code Quiz -randomly generated question with Timer and stores High Scores with Initials".](./assets/images/password_generator.gif)
+![Web Application displays Code Quiz -randomly generated question with Timer and stores High Scores with Initials".](./assets/images/Code-Quiz%20Challenge.gif)
 
 ## TECHNOLOGY
 
@@ -40,7 +40,7 @@ HTML, CSS and Web API (DOM local storage JSON) JavaScript
 
 ## WEBSITE
 
-URL of Deployed Application - https://nkirti28.github.io/password_challenge03/
+URL of Deployed Application - https://nkirti28.github.io/Code_Quiz_Challenge04/
 
 ## CONTRIBUTION
 
