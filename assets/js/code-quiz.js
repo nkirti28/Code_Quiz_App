@@ -24,6 +24,8 @@ let score = 0;
 let timerCount = 0;
 var highScores = [];
 var interval;
+var timeGiven = 75;
+var secondsElapsed = 0;
 
 // create function
 var quizformHandler = function (event) {
@@ -36,17 +38,29 @@ var quizformHandler = function (event) {
 };
 
 // starts Timer function
+// var startTimer = function () {
+//   interval = setInterval(function () {
+//     timerCount++;
+
+//     var minutes = parseInt(timerCount / 60, 10);
+//     var seconds = parseInt(timerCount % 60, 10);
+
+//     minutes = minutes < 10 ? "0" + minutes : minutes;
+//     seconds = seconds < 10 ? "0" + seconds : seconds;
+//     // display timer in minutes and seconds
+//     timerEl.textContent = minutes + ":" + seconds;
+//   }, 1000);
+// };
+
 var startTimer = function () {
+  timerEl.textContent = timeGiven;
   interval = setInterval(function () {
-    timerCount++;
-
-    var minutes = parseInt(timerCount / 60, 10);
-    var seconds = parseInt(timerCount % 60, 10);
-
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    // display timer in minutes and seconds
-    timerEl.textContent = minutes + ":" + seconds;
+    secondsElapsed++;
+    timerEl.textContent = timeGiven - secondsElapsed;
+    if (secondsElapsed >= timeGiven) {
+      currentQuestion = questions.length;
+      nextQuestion();
+    }
   }, 1000);
 };
 
@@ -54,6 +68,7 @@ var startTimer = function () {
 var renderQuestion = function () {
   hide(inputScoreEl);
   hide(highScoresEl);
+
   // get question from questions array question.js
   questionEl.textContent = questions[currentQuestion].question;
 
@@ -62,7 +77,7 @@ var renderQuestion = function () {
 
     optionEl[i].innerHTML =
       optionText +
-      `<input type="radio" name="radio" id="${i}"/><span class="checkmark"></span>`;
+      `<input type="radio" name="radio" id="${i}" value="answer"/><span class="checkmark"></span>`;
   }
 };
 
@@ -75,7 +90,6 @@ var nextQuestion = () => {
     renderQuestion();
   } else {
     stopTimer();
-    console.log(score);
     userScoreEl.textContent = score;
     hide(quizEl);
     show(inputScoreEl);
@@ -90,10 +104,9 @@ function checkAnswer(selectedAnswer) {
     questions[currentQuestion].options[selectedAnswer.dataset.number]
   ) {
     score += 3;
-    console.log("correct");
     displayMsg("Correct!");
   } else {
-    console.log("wrong");
+    secondsElapsed += 5;
     displayMsg("Wrong!");
   }
 }
@@ -140,8 +153,9 @@ function renderHighScores() {
   // Clear content
   scoresEl.innerHTML = "";
   show(highScoresEl);
-  //console.log(highScores);
+
   highScores = JSON.parse(localStorage.getItem("scores"));
+
   for (let i = 0; i < highScores.length; i++) {
     let scoreItem = document.createElement("div");
     scoreItem.className += "scoreBoard";
@@ -157,6 +171,7 @@ function renderHighScores() {
 //Calls to check answer selected and calls to next question if option is clicked
 optionEl.forEach((option) => {
   option.addEventListener("click", (e) => {
+    //   console.log(e.currentTarget.firstElementChild.value);
     if (e.target.matches("label")) {
       checkAnswer(e.target);
       nextQuestion();
